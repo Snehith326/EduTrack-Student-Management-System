@@ -15,6 +15,8 @@ app.use(cors({
   ],
   credentials: true
 }));
+app.use(express.json());        // ← ADD THIS
+app.use(express.urlencoded({ extended: true })); // ← ADD THIS TOO
 
 // ── Routes ────────────────────────────────────
 app.use('/api/auth', require('./routes/authRoutes'));
