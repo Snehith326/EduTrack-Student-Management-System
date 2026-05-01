@@ -61,6 +61,13 @@ const getMe = async (req, res) => {
   } catch (error) {
     res.status(500).json({ message: 'Server error' });
   }
+  console.log("EMAIL:", email);
+
+const student = await Student.findOne({ email }).select('+password');
+console.log("FOUND USER:", student);
+
+const isMatch = await student.comparePassword(password);
+console.log("MATCH:", isMatch);
 };
 
 module.exports = { login, getMe };
