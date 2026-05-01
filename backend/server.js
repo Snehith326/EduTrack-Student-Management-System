@@ -9,7 +9,10 @@ const app = express();
 
 // ── Middleware ────────────────────────────────
 app.use(cors({
-  origin: "https://edutrack-student-management-system-8.onrender.com",
+  origin: [
+    "http://localhost:5173",
+    "https://edutrack-student-management-system-8.onrender.com"
+  ],
   credentials: true
 }));
 
